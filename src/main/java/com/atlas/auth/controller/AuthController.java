@@ -42,15 +42,17 @@ public class AuthController implements IAuthController {
 	@Override
 	@PostMapping("/login")
 	public ResponseEntity<JWTResponse> login(@RequestBody JWTRequest request) {
-		doAuthenticate(request.getEmail(), request.getPassword());
+		doAuthenticate(request.getUsername(), request.getPassword());
 
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
         String token = helper.generateToken(userDetails);
 
         JWTResponse response = new JWTResponse.Builder()
                 .setJwtToken(token)
                 .setUserName(userDetails.getUsername()).build();
+        log.info("Generated jwt token : "+token);
+        
         return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 

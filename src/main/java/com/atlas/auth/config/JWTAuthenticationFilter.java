@@ -35,7 +35,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter{
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //Authorization
         String requestHeader = request.getHeader("Authorization");
-        log.info(" Header :  {}", requestHeader);
+        log.info("Header :  {}", requestHeader);
         String username = null;
         String token = null;
         if (requestHeader != null && requestHeader.startsWith("Bearer")) {
@@ -61,7 +61,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter{
 
 
         } else {
-        	log.info("Invalid Header Value !! ");
+        	log.info("No Authorization header provided !! ");
         }
 
 
