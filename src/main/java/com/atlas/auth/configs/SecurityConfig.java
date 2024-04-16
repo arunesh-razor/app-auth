@@ -1,4 +1,4 @@
-package com.atlas.auth.config;
+package com.atlas.auth.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
