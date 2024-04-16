@@ -1,6 +1,8 @@
 package com.atlas.auth.model;
 
-public class JWTResponse {
+import java.io.Serializable;
+
+public class JWTResponse implements Serializable{
 	
 	private String jwtToken;
 	private String userName;
@@ -11,6 +13,8 @@ public class JWTResponse {
 	public String getUserName() {
 		return userName;
 	}
+	
+	public JWTResponse() {}
 	
 	private JWTResponse(Builder builder) {
 		this.jwtToken=builder.jwtToken;

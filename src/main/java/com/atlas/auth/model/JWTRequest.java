@@ -1,42 +1,24 @@
 package com.atlas.auth.model;
 
-public class JWTRequest {
+import java.io.Serializable;
 
-	private String email;
+public class JWTRequest implements Serializable {
+
+	private String username;
 	private String password;
 	
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 	public String getPassword() {
 		return password;
 	}
 	
-	private JWTRequest(Builder builder) {
-		this.email=builder.email;
-		this.password=builder.password;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
-	//Builder Class
-	public static class Builder{
-			
-		private String email;
-		private String password;
-
-		public Builder setEmail(String email) {
-			this.email = email;
-			return this;
-		}
-
-		public Builder setPassword(String password) {
-			this.password = password;
-			return this;
-		}
-
-		public JWTRequest build(){
-			return new JWTRequest(this);
-		}
-			
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }
