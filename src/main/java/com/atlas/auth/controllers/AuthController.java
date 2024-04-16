@@ -1,4 +1,4 @@
-package com.atlas.auth.controller;
+package com.atlas.auth.controllers;
 
 import java.security.Principal;
 
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.atlas.auth.config.JWTHelper;
-import com.atlas.auth.model.JWTRequest;
-import com.atlas.auth.model.JWTResponse;
+import com.atlas.auth.configs.JWTHelper;
+import com.atlas.auth.models.JWTRequest;
+import com.atlas.auth.models.JWTResponse;
 
 @RestController
 @RequestMapping("/auth")

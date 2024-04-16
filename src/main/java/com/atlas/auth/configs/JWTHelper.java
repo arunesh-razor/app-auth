@@ -1,4 +1,4 @@
-package com.atlas.auth.config;
+package com.atlas.auth.configs;
 
 import java.util.Date;
 import java.util.HashMap;

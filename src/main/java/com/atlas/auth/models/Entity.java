@@ -1,4 +1,4 @@
-package com.atlas.auth.model;
+package com.atlas.auth.models;
 
 import java.util.Date;
 import java.util.UUID;

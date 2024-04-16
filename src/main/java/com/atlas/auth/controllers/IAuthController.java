@@ -1,12 +1,12 @@
-package com.atlas.auth.controller;
+package com.atlas.auth.controllers;
 
 import java.security.Principal;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.atlas.auth.model.JWTRequest;
-import com.atlas.auth.model.JWTResponse;
+import com.atlas.auth.models.JWTRequest;
+import com.atlas.auth.models.JWTResponse;
 
 public interface IAuthController {
 	
