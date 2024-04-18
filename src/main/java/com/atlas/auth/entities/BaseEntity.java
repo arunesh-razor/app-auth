@@ -3,14 +3,13 @@ package com.atlas.auth.entities;
 import java.util.Date;
 import java.util.UUID;
 
-import com.atlas.auth.constants.AccessLevel;
-import com.atlas.auth.constants.Role;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public class BaseEntity {
 	
 	@Id

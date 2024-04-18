@@ -24,6 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JWTAuthenticationFilter extends OncePerRequestFilter{
 
 	private Logger log = LoggerFactory.getLogger(OncePerRequestFilter.class);
+	
     @Autowired
     private JWTHelper jwtHelper;
 
