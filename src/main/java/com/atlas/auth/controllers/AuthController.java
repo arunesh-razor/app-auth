@@ -2,6 +2,8 @@ package com.atlas.auth.controllers;
 
 import java.security.Principal;
 
+import com.atlas.auth.models.*;
+import org.apache.tomcat.util.json.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.atlas.auth.configs.JWTHelper;
-import com.atlas.auth.models.JWTRequest;
-import com.atlas.auth.models.JWTResponse;
+import com.atlas.auth.services.UserAuthService;
 
 @RestController
 @RequestMapping("/auth")
@@ -35,9 +36,11 @@ public class AuthController implements IAuthController {
     @Autowired
     private AuthenticationManager manager;
 
-
     @Autowired
     private JWTHelper helper;
+    
+    @Autowired
+    private UserAuthService userAuthService;
 
 	@Override
 	@PostMapping("/login")
@@ -57,10 +60,31 @@ public class AuthController implements IAuthController {
 	}
 
 	@Override
-	@GetMapping("/signup")
-	public void signup() {
-		log.info("Signup Sucessfull.");
+	@PostMapping("/signup")
+	public ResponseEntity<UserResponse> signup(@RequestBody User user) {
+		ResponseEntity<UserResponse> rsp = null;
+		UserResponse response = new UserResponse();
+		DbOperationStatus res = userAuthService.addUser(user);
+		if (res.isStatus()) {
+			log.info("Signup Sucessfull.");
+			response.setMessage("User Registered Sucessfully");
+			response.setData("{\"status\": true}");
+			rsp = new ResponseEntity<UserResponse>(response, HttpStatus.OK);
+		} else if(res.getMessage().toLowerCase().contains("duplicate")){
+			log.info("Duplicate User : "+user.getEmailId());
+			response.setMessage("User Registration failed!");
+			response.setData("Duplicate User : "+user.getEmailId());
+			
+			rsp = new ResponseEntity<UserResponse>(response, HttpStatus.BAD_REQUEST);
+		} else {
+			log.info("Signup Failed!");
+			response.setMessage("User Registration failed!");
+			response.setData(res.getMessage());
 
+			rsp = new ResponseEntity<UserResponse>(response, HttpStatus.BAD_REQUEST);
+		}
+		
+		return rsp;
 	}
 
 	@Override

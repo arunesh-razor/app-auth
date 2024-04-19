@@ -8,8 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 public interface IAuthConfig {
 	
-	@Bean
-	public UserDetailsService userDetailsService();
+	/*@Bean
+	public UserDetailsService userDetailsService();*/
 	@Bean
 	public PasswordEncoder passwordEncoder();
 	@Bean

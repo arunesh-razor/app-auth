@@ -16,7 +16,7 @@ import com.atlas.auth.constants.Role;
 @Configuration
 public class AuthConfig implements IAuthConfig {
 
-	@Override
+	/*@Override
 	@Bean
 	public UserDetailsService userDetailsService() {
 		UserDetails userDetails = User.builder().
@@ -24,7 +24,7 @@ public class AuthConfig implements IAuthConfig {
                 .password(passwordEncoder().encode("3068805306@Arun")).roles(Role.Admin.toString()).
                 build();
         return new InMemoryUserDetailsManager(userDetails);
-	}
+	} */
 
 	
 	@Override

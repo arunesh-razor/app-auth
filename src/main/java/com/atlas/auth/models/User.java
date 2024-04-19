@@ -1,11 +1,9 @@
 package com.atlas.auth.models;
 
-import com.atlas.auth.constants.Role;
-
 public class User extends Entity {
 	
 	private String firstName;
-	private String LastName;
+	private String lastName;
 	private String userName;
 	private String emailId;
 	private String passwordHash;
@@ -22,10 +20,10 @@ public class User extends Entity {
 		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 	public String getEmailId() {
 		return emailId;

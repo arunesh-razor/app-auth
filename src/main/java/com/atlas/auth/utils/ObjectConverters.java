@@ -28,5 +28,17 @@ public class ObjectConverters {
 		
 		return userDao;
 	}
+	
+	public User mapUserDaoObjectToRequest(com.atlas.auth.entities.User userDao) {
+		User userRequestObj = null;
+		
+		try {
+			userRequestObj = baseObjects.getObjectMapper().convertValue(userDao, User.class);
+		} catch (IllegalArgumentException ex) {
+			log.error("Error mapping Request User to Dao Object : ",userDao);
+		}
+		
+		return userRequestObj;
+	}
 
 }

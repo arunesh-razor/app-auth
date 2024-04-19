@@ -8,16 +8,16 @@ import com.atlas.auth.constants.Role;
 
 public abstract class Entity {
 	
-	private UUID id;
+	private String id;
 	private Role role;
 	private AccessLevel accessLevel;
 	private Date createdDate;
 	private Date lastUpdatedDate;
 	
-	public UUID getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(UUID id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Role geteType() {
